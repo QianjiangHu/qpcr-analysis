@@ -1,5 +1,23 @@
 import streamlit as st
 
+import streamlit as st
+
+# Load credentials securely from Streamlit secrets
+USERS = st.secrets["users"]
+
+# Sidebar login form
+st.sidebar.title("🔑 User Login")
+username = st.sidebar.text_input("Username")
+password = st.sidebar.text_input("Password", type="password")
+
+# Check credentials
+if username in USERS and USERS[username] == password:
+    st.sidebar.success(f"✅ Welcome, {username}!")
+else:
+    st.sidebar.error("❌ Invalid credentials")
+    st.stop()  # Stop execution if login fails
+
+
 # Sidebar navigation
 st.sidebar.title("Navigation")
 page = st.sidebar.radio(
