@@ -14,7 +14,7 @@ st.sidebar.title("🔑 User Login")
 
 if not st.session_state["authenticated"]:
     username = st.sidebar.text_input("Username", key="username_input")
-    password = st.sidebar.text_input("Password", type="password", key="password_input", type="password")
+    password = st.sidebar.text_input("Password", type="password", key="password_input")
 
     if username in USERS and USERS[username] == password:
         st.sidebar.success(f"✅ Welcome, {username}!")
